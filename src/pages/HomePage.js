@@ -24,6 +24,8 @@ export default function HomePage({
     setActive(!active);
   }
 
+  console.log(filteredCards);
+
   const m = moment().startOf('day');
 
   const sortedCards = filteredCards.sort((a, b) => {
@@ -32,8 +34,12 @@ export default function HomePage({
       return dateB.isAfter(dateA) ? 1 : -1;  // Neueste zuerst
     });
 
-  const filteredCatches = sortedCards.map(data => data.catches);
+  console.log(sortedCards);
+
+  const filteredCatches = sortedCards.filter(data => data.catches !== undefined).map(data => data.catches);
+  console.log(filteredCatches)
   const catches = filteredCatches.flat();
+  console.log(catches)
 
   return (
     <>

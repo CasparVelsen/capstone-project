@@ -123,6 +123,7 @@ export default function App() {
   );
 
   async function createCard(formData) {
+    console.log(formData)
     setCards([...cards, formData]);
     navigate('/');
 
